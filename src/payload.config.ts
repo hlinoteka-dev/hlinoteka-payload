@@ -40,7 +40,10 @@ export default buildConfig({
     outputFile: path.resolve(dirname, 'payload-types.ts'),
   },
   db: mongooseAdapter({
-    url: process.env.DATABASE_URI || '',
+    url: process.env.MONGODB_URI || '',
+    connectOptions: {
+      dbName: process.env.MONGODB_NAME || '',
+    },
   }),
   sharp,
   plugins: [
