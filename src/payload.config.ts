@@ -10,6 +10,7 @@ import { Events } from './collections/Events'
 import { Products } from './collections/Products'
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
+import { Data } from './globals/Data'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -20,8 +21,19 @@ export default buildConfig({
     importMap: {
       baseDir: path.resolve(dirname),
     },
+    components: {
+      afterNavLinks: ['./payload/views/AccessView/NavLink'],
+      views: {
+        AccessView: {
+          Component: './payload/views/AccessView/index',
+          path: '/access',
+          exact: true,
+        }
+      }
+    }
   },
   collections: [Events, Products, Users, Media],
+  globals: [Data],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
