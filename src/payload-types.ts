@@ -21,9 +21,7 @@ export interface Config {
   db: {
     defaultIDType: string;
   };
-  globals: {
-    data: Data;
-  };
+  globals: {};
   locale: null;
   user: User & {
     collection: 'users';
@@ -53,24 +51,198 @@ export interface UserAuthOperations {
  */
 export interface Event {
   id: string;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "products".
- */
-export interface Product {
-  id: string;
   title: string;
-  price: number;
-  width: number;
-  height: number;
-  category: ('cups' | 'plates' | 'other' | 'sculptures' | 'bowls' | 'vases' | 'ashtrays')[];
-  image: (string | Media)[];
-  author: 'borek-smazinka' | 'johana-hnizdilova' | 'karolina-kucerova' | 'marketa-spundova';
-  top?: boolean | null;
-  new?: boolean | null;
+  startingDate: string;
+  endingDate?: string | null;
+  startingTimeH?:
+    | (
+        | '00'
+        | '01'
+        | '02'
+        | '03'
+        | '04'
+        | '05'
+        | '06'
+        | '07'
+        | '08'
+        | '09'
+        | '10'
+        | '11'
+        | '12'
+        | '13'
+        | '14'
+        | '15'
+        | '16'
+        | '17'
+        | '18'
+        | '19'
+        | '20'
+        | '21'
+        | '22'
+        | '23'
+      )
+    | null;
+  startingTimeM?:
+    | (
+        | '00'
+        | '01'
+        | '02'
+        | '03'
+        | '04'
+        | '05'
+        | '06'
+        | '07'
+        | '08'
+        | '09'
+        | '10'
+        | '11'
+        | '12'
+        | '13'
+        | '14'
+        | '15'
+        | '16'
+        | '17'
+        | '18'
+        | '19'
+        | '20'
+        | '21'
+        | '22'
+        | '23'
+        | '24'
+        | '25'
+        | '26'
+        | '27'
+        | '28'
+        | '29'
+        | '30'
+        | '31'
+        | '32'
+        | '33'
+        | '34'
+        | '35'
+        | '36'
+        | '37'
+        | '38'
+        | '39'
+        | '40'
+        | '41'
+        | '42'
+        | '43'
+        | '44'
+        | '45'
+        | '46'
+        | '47'
+        | '48'
+        | '49'
+        | '50'
+        | '51'
+        | '52'
+        | '53'
+        | '54'
+        | '55'
+        | '56'
+        | '57'
+        | '58'
+        | '59'
+      )
+    | null;
+  endingTimeH?:
+    | (
+        | '00'
+        | '01'
+        | '02'
+        | '03'
+        | '04'
+        | '05'
+        | '06'
+        | '07'
+        | '08'
+        | '09'
+        | '10'
+        | '11'
+        | '12'
+        | '13'
+        | '14'
+        | '15'
+        | '16'
+        | '17'
+        | '18'
+        | '19'
+        | '20'
+        | '21'
+        | '22'
+        | '23'
+      )
+    | null;
+  endingTimeM?:
+    | (
+        | '00'
+        | '01'
+        | '02'
+        | '03'
+        | '04'
+        | '05'
+        | '06'
+        | '07'
+        | '08'
+        | '09'
+        | '10'
+        | '11'
+        | '12'
+        | '13'
+        | '14'
+        | '15'
+        | '16'
+        | '17'
+        | '18'
+        | '19'
+        | '20'
+        | '21'
+        | '22'
+        | '23'
+        | '24'
+        | '25'
+        | '26'
+        | '27'
+        | '28'
+        | '29'
+        | '30'
+        | '31'
+        | '32'
+        | '33'
+        | '34'
+        | '35'
+        | '36'
+        | '37'
+        | '38'
+        | '39'
+        | '40'
+        | '41'
+        | '42'
+        | '43'
+        | '44'
+        | '45'
+        | '46'
+        | '47'
+        | '48'
+        | '49'
+        | '50'
+        | '51'
+        | '52'
+        | '53'
+        | '54'
+        | '55'
+        | '56'
+        | '57'
+        | '58'
+        | '59'
+      )
+    | null;
+  description?: string | null;
+  url?: string | null;
+  image?: (string | Media)[] | null;
+  enabled?: boolean | null;
+  author?: string | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -92,6 +264,24 @@ export interface Media {
   height?: number | null;
   focalX?: number | null;
   focalY?: number | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "products".
+ */
+export interface Product {
+  id: string;
+  title: string;
+  price: number;
+  width: number;
+  height: number;
+  category: ('cups' | 'plates' | 'other' | 'sculptures' | 'bowls' | 'vases' | 'ashtrays')[];
+  image: (string | Media)[];
+  author: 'borek-smazinka' | 'johana-hnizdilova' | 'karolina-kucerova' | 'marketa-spundova';
+  top?: boolean | null;
+  new?: boolean | null;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -143,16 +333,6 @@ export interface PayloadMigration {
   batch?: number | null;
   updatedAt: string;
   createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "data".
- */
-export interface Data {
-  id: string;
-  dailyOrders?: number | null;
-  updatedAt?: string | null;
-  createdAt?: string | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

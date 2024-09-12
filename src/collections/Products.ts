@@ -2,6 +2,16 @@ import type { CollectionConfig } from 'payload'
 
 export const Products: CollectionConfig = {
     slug: 'products',
+    labels: {
+        singular: {
+            cs: 'Produkt',
+            en: 'Product',
+        },
+        plural: {
+            cs: 'Produkty',
+            en: 'Products',
+        },
+    },
     admin: {
         useAsTitle: 'title',
         group: 'Hlinoteka'
@@ -9,6 +19,10 @@ export const Products: CollectionConfig = {
     fields: [
         {
             name: 'title',
+            label: {
+                cs: 'Název',
+                en: 'Title',
+            },
             type: 'text',
             required: true,
         },
@@ -17,16 +31,28 @@ export const Products: CollectionConfig = {
             fields: [
                 {
                     name: 'price',
+                    label: {
+                        cs: 'Cena',
+                        en: 'Price',
+                    },
                     type: 'number',
                     required: true,
                 },
                 {
                     name: 'width',
+                    label: {
+                        cs: 'Šířka',
+                        en: 'Width',
+                    },
                     type: 'number',
                     required: true,
                 },
                 {
                     name: 'height',
+                    label: {
+                        cs: 'Výška',
+                        en: 'Height',
+                    },
                     type: 'number',
                     required: true,
                 },
@@ -34,34 +60,59 @@ export const Products: CollectionConfig = {
         },
         {
             name: 'category',
+            label: {
+                cs: 'Kategorie',
+                en: 'Category',
+            },
             type: 'select',
             options: [
                 {
-                    label: 'Cups',
+                    label: {
+                        cs: 'Šálky',
+                        en: 'Cups',
+                    },
                     value: 'cups',
                 },
                 {
-                    label: 'Plates',
+                    label: {
+                        cs: 'Miska',
+                        en: 'Plates',
+                    },
                     value: 'plates',
                 },
                 {
-                    label: 'Other',
+                    label: {
+                        cs: 'Ostatní',
+                        en: 'Other',
+                    },
                     value: 'other',
                 },
                 {
-                    label: 'Sculptures',
+                    label: {
+                        cs: 'Skulptury',
+                        en: 'Sculptures',
+                    },
                     value: 'sculptures',
                 },
                 {
-                    label: 'Bows',
+                    label: {
+                        cs: 'Misky',
+                        en: 'Bowls',
+                    },
                     value: 'bowls',
                 },
                 {
-                    label: 'Vases',
+                    label: {
+                        cs: 'Vázy',
+                        en: 'Vases',
+                    },
                     value: 'vases',
                 },
                 {
-                    label: 'Ashtrays',
+                    label: {
+                        cs: 'Popelníčky',
+                        en: 'Ashtrays',
+                    },
                     value: 'ashtrays',
                 }
             ],
@@ -70,7 +121,10 @@ export const Products: CollectionConfig = {
         },
         {
             name: 'image',
-            label: 'Image(s)',
+            label: {
+                cs: 'Obrázek',
+                en: 'Image',
+            },
             type: 'upload',
             relationTo: 'media',
             hasMany: true,
@@ -78,6 +132,10 @@ export const Products: CollectionConfig = {
         },
         {
             name: 'author',
+            label: {
+                cs: 'Autor',
+                en: 'Author',
+            },
             type: 'select',
             options: [
                 {
@@ -110,13 +168,19 @@ export const Products: CollectionConfig = {
             fields: [
                 {
                     name: 'top',
+                    label: {
+                        cs: 'Top produkt',
+                        en: 'Top Product',
+                    },
                     type: 'checkbox',
-                    label: 'Top Product',
                 },
                 {
                     name: 'new',
+                    label: {
+                        cs: 'Novinka',
+                        en: 'New',
+                    },
                     type: 'checkbox',
-                    label: 'New Product',
                 },
             ]
         },
